@@ -1,8 +1,10 @@
 FROM alpine:3.20 as basic
 
+ENV PATH="$PATH:/root/.local/bin"
+
 WORKDIR /var/app
 
-RUN apk add --no-cache /
+RUN apk add --no-cache \
     pipx
 
 FROM basic as dev

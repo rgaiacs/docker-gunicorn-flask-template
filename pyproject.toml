@@ -1,0 +1,8 @@
+[project]
+name = "dummy"
+version = "0.0.1"
+authors = [
+  { name="Raniere Silva", email="raniere@rgaiacs.com" },
+]
+description = "A small template for flask projects"
+readme = "README.md"
