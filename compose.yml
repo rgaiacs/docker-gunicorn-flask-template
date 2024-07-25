@@ -27,7 +27,9 @@ services:
       - "8000"
     ports:
       - "8000:8000"
-    command: sh -c "pipx inject flask . && gunicorn --workers=2 --bind 0.0.0.0:8000 'dummy:app'"
+    environment:
+      LOGGING_LEVEL: "info"
+    command: sh -c "pipx inject flask . && gunicorn --workers=2 --bind 0.0.0.0:8000 'dummy:app' --log-level ${LOGGING_LEVEL}"
 
 volumes:
   dev-egg-info:
