@@ -12,7 +12,7 @@ services:
       - "5000"
     ports:
       - "5000:5000"
-    command: flask run --host 0.0.0.0 --port 5000 --reload --debug --debugger
+    command: sh -c "pipx inject --editable flask . && flask run --host 0.0.0.0 --port 5000 --reload --debug --debugger"
 
   prod:
     build:
@@ -27,4 +27,4 @@ services:
       - "8000"
     ports:
       - "8000:8000"
-    command: gunicorn --workers=2 --bind 0.0.0.0:8000 'wsgi:app'
+    command: sh -c "pipx inject flask . && gunicorn --workers=2 --bind 0.0.0.0:8000 'wsgi:app'"
